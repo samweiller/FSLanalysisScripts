@@ -38,7 +38,8 @@ prm.fieldMapWholePhase       = [11];
 prm.overwriteFuncs  = 0; % 0 = create new func folder on each execution
 prm.functionalAcqs  = [13 14 15 16 17 18 19 20];
 prm.runs2analyze    = [1 2 3 4 5 6 7 8];
-prm.covariatePath   = '~/Dropbox/COVS';
+prm.CBLorder        = [1 2 3 4 5 6 7 8];
+prm.covariatePath   = '/Volumes/Apollo/COVS';
 
 prm.doSpikes   = 1;
 prm.doDeskull  = 1;

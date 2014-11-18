@@ -359,13 +359,14 @@ if prm.toProcess.fieldMapWholePhase
 end;
 
 if prm.toProcess.functionals
-    rawLoc = prm.rawLocation;
-    covLoc = prm.covariatePath;
+    rawLoc       = prm.rawLocation;
+    covLoc       = prm.covariatePath;
     acqs2analyze = prm.functionalAcqs;
     runs2analyze = prm.runs2analyze;
-    subject = prm.subject;
-    experiment = prm.experiment;
-    funcDest = prm.funcDestination;
+    run2CBL      = prm.CBLorder;
+    subject      = prm.subject;
+    experiment   = prm.experiment;
+    funcDest     = prm.funcDestination;
     PARwarnings1 = zeros(prm.toProcess.functionals, 1);
     PARwarnings2 = zeros(prm.toProcess.functionals, 1);
     PARwarnings3 = zeros(prm.toProcess.functionals, 1);
@@ -408,7 +409,8 @@ if prm.toProcess.functionals
         
         %COVS
         if ~isempty(covLoc)
-            cmd = sprintf('cp %s/%s_%s_Run%02d_Cov*.txt %s/Run%02d/', covLoc, subject, experiment, runs2analyze(i), funcDest, runs2analyze(i));
+            cmd = sprintf('cp %s/%s_CBL%02d_Acq%02d_Cov*.txt %s/Run%02d/', covLoc, subject, run2CBL(i), acqs2analyze(i), funcDest, runs2analyze(i));
+
             cmdStatus = system(cmd);
             if cmdStatus == 1
                 textToLog = sprintf('Covariates not moved. Command failed: %s', cmd);
